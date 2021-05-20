@@ -1,0 +1,140 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<div class="header-bar">
+    <div class="container-fluid">
+        <form method="GET" avtion="" class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Enter your city here" name="cityname"
+                aria-label="Search">
+            <button class="btn btn-outline-info button" type="submit"><i class="fa fa-search"
+                    aria-hidden="true"></i></button>
+        </form>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="title" style="
+            grid-column: 1/4;
+            margin: 0 auto;
+            text-align: center;
+            background: #ffc1c1;
+            border-radius: 4px;
+            padding: 15px 100px ;
+        ">
+        <h1 id="city" style="font-weight: 600;
+            font-size: 40px;padding-top: 20px;
+            color: #fdf2f1;">{{data.city}}</h1>
+        <div id="graphic" class="weather-icon" style="grid-column: 1/4;
+            margin: 0 auto;
+            text-align: center;
+            background: #ffc1c1;
+            border-radius: 4px;
+            padding: 10px 100px;"><img style="width: 100px;" src="http://openweathermap.org/img/wn/{{data.icon}}.png"
+                alt="">
+        </div>
+        <div id="description" class='important-info text' style="font-family: 'Space Mono', Helvetica, sans-serif;
+            font-size: 16px;
+            color: #333;
+            padding-bottom: 10px;">{{data.description}}</div>
+        <div id="farenheit" class="temp-info" style="font-family: 'Open Sans', Helvetica, sans-serif;
+            font-size: 30px;
+            color: #C95E67;
+            font-weight: 600;">{{data.C_temperature}} &deg;C | {{data.F_temperature}} &deg;F</div>
+        <div id="celsius" class="temp-info"></div>
+    </div>
+</div>
+<div class="description-container" style="background: #efefef;
+            border-radius: 4px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 500px;
+            margin: 0 auto;
+            padding: 8px 10px 8px 35px;
+            ">
+    <div class="block-1" style="grid-column: 1;
+            padding: 10px;">
+        <div class="text" style="font-family: 'Space Mono', Helvetica, sans-serif;
+            font-size: 14px;
+            color: #333;">
+            <span>Max</span>
+            <span id="max" class="important-info" style="grid-column: 1;">{{data.maxtemp_C}} &deg;C</span>
+        </div>
+        <div class="text" style="font-family: 'Space Mono', Helvetica, sans-serif;
+            font-size: 14px;
+            color: #333;">
+            <span>Min</span>
+            <span id="min" class='important-info' style="grid-column: 1;">{{data.mintemp_C}} &deg;C</span>
+        </div>
+
+    </div>
+    <div class="block-2" style="grid-column: 2;
+            padding: 10px;">
+        <div id="longitude" class=" text important-info" style="grid-column: 1;font-family: 'Space Mono', Helvetica, sans-serif;
+            font-size: 14px;
+            color: #333;">Lon: {{data.longitude}}</div>
+        <div id="latitude" class="text important-info" style="font-family: 'Space Mono', Helvetica, sans-serif;
+            font-size: 14px;
+            color: #333;">Lat: {{data.latitude}}</div>
+    </div>
+    <div class="block-3" style="grid-column: 3;
+            padding: 10px;">
+        <div id="humidity" class="text important-info" style="grid-column: 1;font-family: 'Space Mono', Helvetica, sans-serif;
+            font-size: 14px;
+            color: #333;">Humidity: {{data.humidity}}</div>
+        <div id="pressure" class="text important-info" style="grid-column: 1;font-family: 'Space Mono', Helvetica, sans-serif;
+            font-size: 14px;
+            color: #333;">Pressure: {{data.pressure}}</div>
+        <div id="windSpeed" class="text important-info" style="grid-column: 1;font-family: 'Space Mono', Helvetica, sans-serif;
+            font-size: 14px;
+            color: #333;">Winds: {{data.wind}} km/hr</div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-4">
+            <span>Max</span>
+            <span id="max" class="important-info">{{data.maxtemp_C}} &deg;C</span>
+        </div>
+        <div class="col-4">
+            <div id="longitude" class=" text important-info">Lon: {{data.longitude}}</div>
+        </div>
+        <div class="col-4">
+            <div id="humidity" class="text important-info">Humidity: {{data.humidity}}</div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <span>Min</span>
+            <span id="max" class="important-info">{{data.mintemp_C}} &deg;C</span>
+        </div>
+        <div class="col-4">
+            <div id="longitude" class=" text important-info">Lat: {{data.latitude}}</div>
+        </div>
+        <div class="col-4">
+            <div id="humidity" class="text important-info">Pressure: {{data.pressure}}</div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-8"></div>
+        <div class="col">
+            <div id="windSpeed" class="text important-info">Winds: {{data.wind}} km/hr</div>
+        </div>
+    </div>
+
+</div> -->
+
+
+
+
+
+{% endblock content %}

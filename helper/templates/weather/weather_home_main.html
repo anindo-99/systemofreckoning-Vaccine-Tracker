@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Space+Mono');
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:200,400,600,700,800');
+
+        body {
+            height: 100%;
+            background: #C95E67;
+            /* fallback for old browsers */
+        }
+
+        h1 {
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            font-size: 29px;
+            color: #C95E67;
+        }
+
+        .text {
+            font-family: 'Space Mono', Helvetica, sans-serif;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 100%;
+            margin: 40px 0px 10px 0;
+        }
+
+        .container-button {
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-top: 10px;
+        }
+
+        .weather-icon,
+        .title {
+            grid-column: 1/4;
+            margin: 0 auto;
+            text-align: center;
+            background: #b4b4b4;
+            border-radius: 4px;
+            padding: 15px 100px;
+        }
+
+        .important-info {
+            grid-column: 1;
+        }
+
+        .description-container {
+            background: #efefef;
+            border-radius: 4px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px 10px 20px 10px;
+        }
+
+        .block-1 {
+            grid-column: 1;
+            padding: 10px;
+        }
+
+        .block-2 {
+            grid-column: 2;
+            padding: 10px;
+        }
+
+        .block-3 {
+            grid-column: 3;
+            padding: 10px;
+        }
+
+        .weatherInfo {
+            height: 100%;
+        }
+
+        .temp-info {
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            font-size: 40px;
+            color: #C95E67;
+            font-weight: 600;
+        }
+
+
+
+        /*Resize the wrap to see the search bar change!*/
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+
+
+    <div class="container">
+        <div class="title">
+            <h1 id="city">{{data.city}}</h1>
+            <div id="graphic" class="weather-icon"><img style="width: 100px;"
+                    src="http://openweathermap.org/img/wn/{{data.icon}}.png" alt="">
+            </div>
+            <div id="description" class='important-info text'>{{data.description}}</div>
+            <div id="farenheit" class="temp-info">{{data.C_temperature}} &deg;C | {{data.F_temperature}} &deg;F</div>
+            <div id="celsius" class="temp-info"></div>
+        </div>
+    </div>
+    <div class="description-container">
+        <div class="block-1">
+            <div class="text">
+                <span>Max</span>
+                <span id="max" class="important-info">{{data.maxtemp_C}} &deg;C</span>
+            </div>
+            <div class="text">
+                <span>Min</span>
+                <span id="min" class='important-info'>{{data.mintemp_C}} &deg;C</span>
+            </div>
+
+        </div>
+        <div class="block-2">
+            <div id="longitude" class=" text important-info">Lon: {{data.longitude}}</div>
+            <div id="latitude" class="text important-info">Lat: {{data.latitude}}</div>
+        </div>
+        <div class="block-3">
+            <div id="humidity" class="text important-info">Humidity: {{data.humidity}}</div>
+            <div id="pressure" class="text important-info">Pressure: {{data.pressure}}</div>
+            <div id="windSpeed" class="text important-info">Winds: {{data.wind}} km/hr</div>
+        </div>
+    </div>
+
+    <!-- <div class="container-button">
+        <div class="switch-button">
+            <span class="active"></span>
+            <button class="text switch-button-case left active-case">Celsius</button>
+            <button class="text switch-button-case right">Farenheit</button>
+        </div>
+    </div>
+ -->
+
+</body>
+
+</html>

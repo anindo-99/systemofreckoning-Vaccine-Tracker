@@ -1,0 +1,76 @@
+{% extends 'basic.html' %}
+
+<!--
+
+{% for key, j in data.items %}
+<p>{{ j}}</p>
+{%for k,i in j.items%}
+<p>{{k}} : {{i}}</p>
+{% endfor %}
+<br>
+{% endfor %}
+'''
+-->
+
+
+
+
+
+{% block content %}
+
+
+
+<div class="header-bar">
+    <h1>Vaccine Slots</h1>
+</div>
+
+<div class="card-body">
+    <!-- <form method="POST">
+        {% csrf_token %}
+
+        <label>{{form.username.label}}</label>
+        {{form.username}}
+        <label>{{form.email.label}}</label>
+        {{form.email}}
+
+        <label>{{form.password1.label}}</label>
+        {{form.password1}}
+
+        <label>{{form.password2.label}}</label>
+        {{form.password2}}
+        <input style="margin-top:10px ;" class="button" type="submit" value="Register">
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p> -->
+
+
+
+
+    <form action="{% url 'handle_vaccine_slots' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="first_name">STATE</label>
+            <input type="text" class="form-control" id="state_name" name="state_name" placeholder="" required>
+        </div>
+
+        <div class="form-group">
+            <label for="last_name">DISTRICT</label>
+            <input type="text" class="form-control" id="district_name" name="district_name" placeholder="" required>
+        </div>
+
+        <div class="form-group">
+            <label for="last_name">AGE</label>
+            <input type="text" class="form-control" id="age" name="age" placeholder="" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="@gmail.com"
+                aria-describedby="emailHelp" required>
+
+        </div>
+
+
+        <button style="margin-top:5px;margin-bottom:0px;" type="submit" class="btn button">Submit</button>
+    </form>
+</div>
+{% endblock content %}
